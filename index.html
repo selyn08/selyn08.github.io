@@ -209,109 +209,123 @@
             font-size: 12px;
         }
 
-        .email-subscription {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+        .social-section {
             margin-bottom: 3rem;
-            backdrop-filter: blur(10px);
-            animation: slideUp 1s ease-out;
         }
 
-        @keyframes slideUp {
+        .social-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: var(--gradient-green);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            position: relative;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
             from {
-                opacity: 0;
-                transform: translateY(50px);
+                text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
             }
             to {
-                opacity: 1;
-                transform: translateY(0);
+                text-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
             }
-        }
-
-        .subscription-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .email-input {
-            flex: 1;
-            padding: 1rem;
-            border: 2px solid transparent;
-            border-radius: var(--border-radius);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: var(--primary-orange);
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
-        }
-
-        .submit-btn {
-            padding: 1rem 2rem;
-            background: var(--gradient-orange);
-            color: white;
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
         }
 
         .social-links {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .social-link {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            padding: 1.5rem 1rem;
+            border-radius: var(--border-radius);
             background: var(--card-bg);
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: var(--shadow);
             backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
         .social-link:hover {
-            transform: translateY(-5px) scale(1.1);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-link:hover .social-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .social-link:hover .social-text {
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .social-link.facebook:hover {
-            background: var(--gradient-orange);
-            color: white;
+            background: linear-gradient(135deg, #1877F2, #42A5F5);
         }
 
         .social-link.instagram:hover {
-            background: var(--gradient-green);
-            color: white;
+            background: linear-gradient(135deg, #E4405F, #FCCC63, #833AB4);
+        }
+
+        .social-link.twitter:hover {
+            background: linear-gradient(135deg, #000000, #333333);
+        }
+
+        .social-link.tiktok:hover {
+            background: linear-gradient(135deg, #000000, #FF0050, #00F2EA);
+        }
+
+        .social-link.youtube:hover {
+            background: linear-gradient(135deg, #FF0000, #FF4444);
         }
 
         .social-link.linkedin:hover {
-            background: var(--gradient-orange);
-            color: white;
+            background: linear-gradient(135deg, #0077B5, #00A0DC);
         }
 
         .progress-bar {
@@ -347,18 +361,21 @@
                 align-items: center;
             }
 
-            .subscription-form {
-                flex-direction: column;
-            }
-
             .social-links {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
 
             .social-link {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+                padding: 1rem 0.5rem;
+            }
+
+            .social-icon {
+                font-size: 2rem;
+            }
+
+            .social-text {
+                font-size: 0.8rem;
             }
         }
 
@@ -402,28 +419,34 @@
                 </div>
             </div>
 
-            <div class="email-subscription">
-                <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Prévenez-moi lors du lancement</h3>
-                <form class="subscription-form" onsubmit="handleSubscription(event)">
-                    <input 
-                        type="email" 
-                        class="email-input" 
-                        placeholder="Votre adresse e-mail" 
-                        required
-                    >
-                    <button type="submit" class="submit-btn">S'abonner</button>
-                </form>
+            <div class="social-section">
+                <h3 class="social-title">Suivez-nous sur les réseaux sociaux</h3>
             </div>
 
             <div class="social-links">
                 <a href="#" class="social-link facebook" title="Facebook">
-                    <span>📘</span>
+                    <div class="social-icon">📘</div>
+                    <span class="social-text">Facebook</span>
                 </a>
                 <a href="#" class="social-link instagram" title="Instagram">
-                    <span>📸</span>
+                    <div class="social-icon">📸</div>
+                    <span class="social-text">Instagram</span>
+                </a>
+                <a href="#" class="social-link twitter" title="X (Twitter)">
+                    <div class="social-icon">✖️</div>
+                    <span class="social-text">X</span>
+                </a>
+                <a href="#" class="social-link tiktok" title="TikTok">
+                    <div class="social-icon">🎵</div>
+                    <span class="social-text">TikTok</span>
+                </a>
+                <a href="#" class="social-link youtube" title="YouTube">
+                    <div class="social-icon">📺</div>
+                    <span class="social-text">YouTube</span>
                 </a>
                 <a href="#" class="social-link linkedin" title="LinkedIn">
-                    <span>💼</span>
+                    <div class="social-icon">💼</div>
+                    <span class="social-text">LinkedIn</span>
                 </a>
             </div>
         </div>
@@ -444,30 +467,6 @@
                 body.setAttribute('data-theme', 'light');
                 themeIcon.textContent = '🌙';
             }
-        }
-
-        function handleSubscription(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('.email-input').value;
-            
-            // Simulate subscription process
-            const submitBtn = event.target.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Envoi...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                submitBtn.textContent = 'Merci !';
-                submitBtn.style.background = 'var(--gradient-green)';
-                
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = 'var(--gradient-orange)';
-                    event.target.reset();
-                }, 2000);
-            }, 1500);
         }
 
         // Add some interactive animations
