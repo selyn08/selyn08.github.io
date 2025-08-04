@@ -1,694 +1,294 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selyn Business Center - Plateforme intelligente pour votre business</title>
-    <meta name="description" content="Selyn Business Center : Une plateforme intelligente, un accompagnement stratégique, un espace qui booste votre business.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #00365F;
-            --accent: #278EC7;
-            --light-gray: #E6E6E6;
-            --medium-gray: #B3B3B3;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            scroll-behavior: smooth;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, var(--primary) 0%, #004d87 100%);
-        }
-        
-        .glass-effect {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .page-transition {
-            transition: all 0.3s ease;
-        }
-        
-        .slide-in {
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .slide-in.active {
-            transform: translateX(0);
-        }
-        
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-        
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-        
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        
-        .pricing-card {
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .form-input {
-            transition: all 0.3s ease;
-        }
-        
-        .form-input:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(39, 142, 199, 0.1);
-        }
-        
-        .mobile-menu {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-    </style>
+    <title>SELYN Business Center</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav x-data="{ isOpen: false }" class="fixed top-0 w-full z-50 glass-effect">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <img src="https://selyn.ma/logo%20SELYN.png" alt="Selyn Logo" class="h-10 w-auto">
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Accueil</a>
-                        <a href="#products" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Produits & Solutions</a>
-                        <a href="#about" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Qui sommes-nous</a>
-                        <a href="#pricing" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tarifs</a>
-                        <a href="#contact" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
-                    </div>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button @click="isOpen = !isOpen" class="text-white hover:text-blue-200">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
+<body>
+    <button class="mobile-nav-toggle" aria-controls="sidebar-nav" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+        <span class="sr-only">Menu</span>
+    </button>
+    <nav class="sidebar-nav" id="sidebar-nav">
+        <div class="logo">
+            <a href="#">SELYN</a>
         </div>
-        
-        <!-- Mobile Navigation -->
-        <div :class="{'active': isOpen}" class="mobile-menu md:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40">
-            <div class="flex justify-end p-4">
-                <button @click="isOpen = false" class="text-white text-2xl">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="flex flex-col items-center space-y-8 mt-16">
-                <a href="#home" @click="isOpen = false" class="text-white text-2xl">Accueil</a>
-                <a href="#products" @click="isOpen = false" class="text-white text-2xl">Produits & Solutions</a>
-                <a href="#about" @click="isOpen = false" class="text-white text-2xl">Qui sommes-nous</a>
-                <a href="#pricing" @click="isOpen = false" class="text-white text-2xl">Tarifs</a>
-                <a href="#contact" @click="isOpen = false" class="text-white text-2xl">Contact</a>
-            </div>
-        </div>
+        <ul>
+            <li class="active"><a href="#accueil"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="#consulting"><i class="fas fa-briefcase"></i> Consulting & Accompagnement</a></li>
+            <li><a href="#suite"><i class="fas fa-rocket"></i> SELYN Suite</a></li>
+            <li><a href="#coworking"><i class="fas fa-building"></i> Espace Coworking</a></li>
+            <li><a href="#offres"><i class="fas fa-tags"></i> Nos Offres & Tarifs</a></li>
+            <li><a href="#communaute"><i class="fas fa-users"></i> Communauté & Réseautage</a></li>
+            <li><a href="#a-propos"><i class="fas fa-info-circle"></i> À propos</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Home Page -->
-    <section id="home" class="min-h-screen hero-gradient">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
-                <div class="text-white fade-in stagger-1">
-                    <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-                        Une plateforme intelligente pour votre business
-                    </h1>
-                    <p class="text-xl lg:text-2xl mb-8 text-blue-100">
-                        Selyn Business Center : Une plateforme intelligente, un accompagnement stratégique, un espace qui booste votre business
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="bg-[#278EC7] hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105">
-                            Démarrer maintenant
-                        </button>
-                        <button class="border-2 border-white text-white hover:bg-white hover:text-[#00365F] px-8 py-4 rounded-lg font-semibold transition-all">
-                            En savoir plus
-                        </button>
-                    </div>
-                </div>
-                <div class="relative animate-float">
-                    <div class="relative z-10">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                             alt="Platform mockup" 
-                             class="rounded-2xl shadow-2xl w-full max-w-lg mx-auto">
-                    </div>
-                    <div class="absolute top-10 -right-10 w-20 h-20 bg-[#278EC7] rounded-full opacity-20"></div>
-                    <div class="absolute bottom-10 -left-10 w-32 h-32 bg-white rounded-full opacity-10"></div>
+    <main class="main-content">
+        <!-- ================== -->
+        <!--     Hero Section     -->
+        <!-- ================== -->
+        <section id="accueil" class="hero-section">
+            <div class="hero-content">
+                <h1>Une transformation globale, portée par l’intelligence, l’expertise et l’espace.</h1>
+                <p class="subtitle">Découvrez un écosystème connecté où vos idées prennent vie.</p>
+                <div class="cta-buttons">
+                    <a href="#offres" class="btn btn-primary">Commencer maintenant</a>
+                    <a href="#poles" class="btn btn-secondary">Explorer nos solutions</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Products & Solutions -->
-    <section id="products" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Produits & Solutions</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Trois piliers complémentaires pour propulser votre succès
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-[#00365F] rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+        <!-- ================== -->
+        <!--   Poles Section    -->
+        <!-- ================== -->
+        <section id="poles" class="poles-section">
+            <div class="container">
+                <h2 class="section-title">Nos Pôles – Produits, Services & Solutions</h2>
+                <div class="poles-grid">
+                    <!-- Card 1: Consulting -->
+                    <div class="pole-card fade-in-element">
+                        <i class="fas fa-briefcase card-icon"></i>
+                        <h3>Consulting & Accompagnement</h3>
+                        <p>Un accompagnement stratégique complet pour transformer vos ambitions en succès.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Étude & montage de projets</li>
+                            <li><i class="fas fa-check-circle"></i> Optimisation financière & fiscale</li>
+                            <li><i class="fas fa-check-circle"></i> Stratégie RH & Formation</li>
+                            <li><i class="fas fa-check-circle"></i> Recherche de financement</li>
+                        </ul>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Accompagnement & Consulting</h3>
-                    <p class="text-gray-600 mb-6">
-                        Expertise stratégique et accompagnement personnalisé pour transformer votre business et accélérer votre croissance.
-                    </p>
-                    <a href="#" class="text-[#278EC7] font-semibold hover:text-[#00365F] transition-colors">
-                        En savoir plus →
-                    </a>
-                </div>
-                
-                <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-[#278EC7] rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    <!-- Card 2: SELYN Suite -->
+                    <div class="pole-card fade-in-element">
+                        <i class="fas fa-rocket card-icon"></i>
+                        <h3>SELYN Suite – Super App SaaS</h3>
+                        <p class="highlight">“Pilotez toute votre entreprise depuis une seule plateforme évolutive et intelligente.”</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Gestion financière & comptable</li>
+                            <li><i class="fas fa-check-circle"></i> CRM, Ventes, Achats, Stock</li>
+                            <li><i class="fas fa-check-circle"></i> RH, Paie & Planification</li>
+                            <li><i class="fas fa-check-circle"></i> Tableaux de bord en temps réel</li>
+                        </ul>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Selyn Apps</h3>
-                    <p class="text-gray-600 mb-6">
-                        Applications mobiles et web innovantes pour digitaliser vos processus et optimiser vos performances.
-                    </p>
-                    <a href="#" class="text-[#278EC7] font-semibold hover:text-[#00365F] transition-colors">
-                        Explorer les apps →
-                    </a>
-                </div>
-                
-                <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-gray-600 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-users text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Espace de Coworking</h3>
-                    <p class="text-gray-600 mb-6">
-                        Un espace de travail moderne et connecté pour favoriser l'innovation et le networking entrepreneurial.
-                    </p>
-                    <a href="#" class="text-[#278EC7] font-semibold hover:text-[#00365F] transition-colors">
-                        Réserver →
-                    </a>
-                </div>
-            </div>
-            
-            <div class="bg-gradient-to-r from-[#00365F] to-[#278EC7] rounded-3xl p-12 text-white text-center">
-                <h3 class="text-3xl font-bold mb-6">Pourquoi tout est lié ?</h3>
-                <p class="text-xl mb-8 max-w-3xl mx-auto">
-                    Nos trois piliers travaillent en synergie pour créer un écosystème complet qui propulse votre succès entrepreneurial.
-                </p>
-                <div class="grid md:grid-cols-3 gap-8 mt-12">
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-chess-king text-3xl"></i>
-                        </div>
-                        <h4 class="font-semibold mb-2">Conseil Digital</h4>
-                        <p class="text-sm opacity-90">Stratégie et accompagnement</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-mobile-alt text-3xl"></i>
-                        </div>
-                        <h4 class="font-semibold mb-2">Applications</h4>
-                        <p class="text-sm opacity-90">Outils digitaux performants</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-building text-3xl"></i>
-                        </div>
-                        <h4 class="font-semibold mb-2">Coworking</h4>
-                        <p class="text-sm opacity-90">Espace collaboratif</p>
+                    <!-- Card 3: Coworking -->
+                    <div class="pole-card fade-in-element">
+                        <i class="fas fa-users card-icon"></i>
+                        <h3>Espace Coworking</h3>
+                        <p>Un environnement de travail moderne et connecté pour inspirer l'innovation et la collaboration.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 25 postes en espace partagé</li>
+                            <li><i class="fas fa-check-circle"></i> 8 bureaux privatifs équipés</li>
+                            <li><i class="fas fa-check-circle"></i> Salle de réunion & événements</li>
+                            <li><i class="fas fa-check-circle"></i> Services de secrétariat & cafétéria</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Us -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Qui sommes-nous</h2>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-12 mb-16">
-                <div>
-                    <h3 class="text-3xl font-bold mb-6">Notre ADN</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Nous sommes bien plus qu'un simple business center. Selyn est un écosystème entrepreneurial 
-                        conçu pour catalyser l'innovation et transformer les idées en réussites tangibles.
-                    </p>
-                    
-                    <h3 class="text-3xl font-bold mb-6">Mission</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Accompagner les entrepreneurs et les entreprises dans leur transformation digitale 
-                        en fournissant des solutions intégrées alliant conseil stratégique, technologies 
-                        innovantes et espaces collaboratifs.
-                    </p>
-                    
-                    <h3 class="text-3xl font-bold mb-6">Valeurs</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 bg-[#278EC7] rounded-full flex items-center justify-center mt-1">
-                                <i class="fas fa-handshake text-white text-sm"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold">Collaboration</h4>
-                                <p class="text-gray-600 text-sm">Travailler ensemble pour réussir ensemble</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 bg-[#278EC7] rounded-full flex items-center justify-center mt-1">
-                                <i class="fas fa-lightbulb text-white text-sm"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold">Innovation</h4>
-                                <p class="text-gray-600 text-sm">Repousser les limites de l'imaginable</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 bg-[#278EC7] rounded-full flex items-center justify-center mt-1">
-                                <i class="fas fa-rocket text-white text-sm"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold">Excellence</h4>
-                                <p class="text-gray-600 text-sm">Viser l'excellence dans tout ce que nous faisons</p>
-                            </div>
-                        </div>
+        <!-- ===================== -->
+        <!--   Pricing Section     -->
+        <!-- ===================== -->
+        <section id="offres" class="pricing-section">
+            <div class="container">
+                <h2 class="section-title">Nos Offres & Tarifs</h2>
+                <div class="pricing-grid">
+                    <!-- Pricing Card 0: Gratuit -->
+                    <div class="pricing-card fade-in-element">
+                        <h3>Panier 0 (Gratuit)</h3>
+                        <div class="price">0.00 <span>DH</span></div>
+                        <p class="period">Découverte</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 1ère consultation gratuite</li>
+                            <li><i class="fas fa-check"></i> 1 module SELYN Suite (1 mois)</li>
+                            <li><i class="fas fa-check"></i> 1h/semaine de coworking</li>
+                            <li><i class="fas fa-check"></i> Profil publié 15 jours</li>
+                            <li><i class="fas fa-check"></i> Participation aux événements</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Commencer</a>
                     </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-3xl font-bold mb-6">Équipe Selyn</h3>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="text-center">
-                            <div class="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                <i class="fas fa-user text-gray-600 text-2xl"></i>
-                            </div>
-                            <h4 class="font-semibold">Youssef Amine</h4>
-                            <p class="text-sm text-gray-600">CEO & Fondateur</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                <i class="fas fa-user text-gray-600 text-2xl"></i>
-                            </div>
-                            <h4 class="font-semibold">Sarah Johnson</h4>
-                            <p class="text-sm text-gray-600">Directrice Technique</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                <i class="fas fa-user text-gray-600 text-2xl"></i>
-                            </div>
-                            <h4 class="font-semibold">Ahmed Benali</h4>
-                            <p class="text-sm text-gray-600">Responsable Consulting</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                <i class="fas fa-user text-gray-600 text-2xl"></i>
-                            </div>
-                            <h4 class="font-semibold">Marie Dubois</h4>
-                            <p class="text-sm text-gray-600">Community Manager</p>
-                        </div>
+                    <!-- Pricing Card 1: Populaire -->
+                    <div class="pricing-card popular fade-in-element">
+                        <div class="popular-badge">Populaire</div>
+                        <h3>Panier 1</h3>
+                        <div class="price">3 000 <span>DH HT / Mois</span></div>
+                        <p class="period">Accompagnement Continu</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Gestion de projet, RH, pré-comptabilité</li>
+                            <li><i class="fas fa-check"></i> Modules SELYN Suite (compta, tréso)</li>
+                            <li><i class="fas fa-check"></i> Coworking quotidien</li>
+                            <li><i class="fas fa-check"></i> Salle de réunion 1h/semaine</li>
+                            <li><i class="fas fa-check"></i> Services de secrétariat</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary">Choisir cette offre</a>
+                    </div>
+                    <!-- Pricing Card 2: Personnalisé -->
+                    <div class="pricing-card fade-in-element">
+                        <h3>Panier 2 (Personnalisé)</h3>
+                        <div class="price">10 000 <span>DH HT / Trimestre</span></div>
+                        <p class="period">Solution Complète</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Étude et suivi de projets</li>
+                            <li><i class="fas fa-check"></i> RH, optimisation, modules avancés</li>
+                            <li><i class="fas fa-check"></i> Accès coworking 2 pers.</li>
+                            <li><i class="fas fa-check"></i> Salle de réunion 3h/semaine</li>
+                            <li><i class="fas fa-check"></i> Secrétariat inclus</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Nous Contacter</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center bg-[#00365F] rounded-3xl p-12">
-                <h3 class="text-3xl font-bold text-white mb-6">Rejoignez notre écosystème</h3>
-                <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                    Intégrez une communauté dynamique d'entrepreneurs et propulsez votre business vers de nouveaux sommets.
-                </p>
-                <button class="bg-[#278EC7] hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105">
-                    Rejoindre maintenant
-                </button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Tarifs</h2>
-                <p class="text-xl text-gray-600">
-                    Des solutions flexibles adaptées à vos besoins
-                </p>
-            </div>
-            
-            <!-- Coworking & Bureaux -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold mb-8 text-center">Coworking & Bureaux</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="pricing-card bg-gray-50 p-8 rounded-2xl">
-                        <h4 class="text-xl font-semibold mb-4">Bureau Partagé</h4>
-                        <div class="text-3xl font-bold mb-4">1500<span class="text-lg text-gray-600"> MAD/mois</span></div>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Accès espace coworking</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Wifi haut débit</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Café illimité</li>
-                        </ul>
-                        <button class="w-full bg-[#278EC7] text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
-                            Choisir
-                        </button>
-                    </div>
-                    
-                    <div class="pricing-card bg-[#00365F] text-white p-8 rounded-2xl scale-105">
-                        <div class="bg-[#278EC7] text-white text-xs px-2 py-1 rounded-full inline-block mb-4">Populaire</div>
-                        <h4 class="text-xl font-semibold mb-4">Bureau Privatif</h4>
-                        <div class="text-3xl font-bold mb-4">3500<span class="text-lg opacity-80"> MAD/mois</span></div>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Bureau privé</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Accès 24/7</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Salle de réunion incluse</li>
-                        </ul>
-                        <button class="w-full bg-white text-[#00365F] py-3 rounded-lg hover:bg-gray-100 transition-colors">
-                            Choisir
-                        </button>
-                    </div>
-                    
-                    <div class="pricing-card bg-gray-50 p-8 rounded-2xl">
-                        <h4 class="text-xl font-semibold mb-4">Bureau Équipe</h4>
-                        <div class="text-3xl font-bold mb-4">5000<span class="text-lg text-gray-600"> MAD/mois</span></div>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Bureau pour 4-6 personnes</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Salle de réunion dédiée</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Support IT premium</li>
-                        </ul>
-                        <button class="w-full bg-[#278EC7] text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
-                            Choisir
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Accompagnement & Consulting -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold mb-8 text-center">Accompagnement & Consulting</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="pricing-card bg-gray-50 p-8 rounded-2xl">
-                        <h4 class="text-xl font-semibold mb-4">Accompagnement Starter</h4>
-                        <div class="text-3xl font-bold mb-4">5000<span class="text-lg text-gray-600"> MAD</span></div>
-                        <p class="text-gray-600 mb-4">Pack découverte</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Audit initial</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Plan d'action</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 5 séances de coaching</li>
-                        </ul>
-                        <button class="w-full border-2 border-[#278EC7] text-[#278EC7] py-3 rounded-lg hover:bg-[#278EC7] hover:text-white transition-colors">
-                            Démarrer
-                        </button>
-                    </div>
-                    
-                    <div class="pricing-card bg-gray-50 p-8 rounded-2xl">
-                        <h4 class="text-xl font-semibold mb-4">Accompagnement Pro</h4>
-                        <div class="text-3xl font-bold mb-4">12000<span class="text-lg text-gray-600"> MAD</span></div>
-                        <p class="text-gray-600 mb-4">Transformation complète</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Accompagnement sur 3 mois</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Stratégie digitale</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Mise en œuvre</li>
-                        </ul>
-                        <button class="w-full bg-[#278EC7] text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
-                            Choisir
-                        </button>
-                    </div>
-                    
-                    <div class="pricing-card bg-gray-50 p-8 rounded-2xl">
-                        <h4 class="text-xl font-semibold mb-4">Consulting Premium</h4>
-                        <div class="text-3xl font-bold mb-4">Sur devis</div>
-                        <p class="text-gray-600 mb-4">Solution sur mesure</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Audit complet</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Solution personnalisée</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Support continu</li>
-                        </ul>
-                        <button class="w-full border-2 border-gray-600 text-gray-600 py-3 rounded-lg hover:bg-gray-600 hover:text-white transition-colors">
-                            Contacter
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Selyn Apps -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold mb-8 text-center">Selyn Apps</h3>
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="pricing-card bg-gray-50 p-8 rounded-2xl">
-                        <h4 class="text-xl font-semibold mb-4">Abonnement Mensuel</h4>
-                        <div class="text-3xl font-bold mb-4">299<span class="text-lg text-gray-600"> MAD/mois</span></div>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Accès à toutes les apps</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Support technique</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Mises à jour gratuites</li>
-                        </ul>
-                        <button class="w-full bg-[#278EC7] text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
-                            S'abonner
-                        </button>
-                    </div>
-                    
-                    <div class="pricing-card bg-gray-50 p-8 rounded-2xl">
-                        <h4 class="text-xl font-semibold mb-4">Abonnement Annuel</h4>
-                        <div class="text-3xl font-bold mb-4">2990<span class="text-lg text-gray-600"> MAD/an</span></div>
-                        <div class="text-sm text-green-600 mb-4">Économisez 2 mois</div>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Accès à toutes les apps</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Support prioritaire</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Formation incluse</li>
-                        </ul>
-                        <button class="w-full bg-[#00365F] text-white py-3 rounded-lg hover:bg-[#004d87] transition-colors">
-                            Choisir l'annuel
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center">
-                <div class="bg-[#278EC7] rounded-3xl p-12">
-                    <h3 class="text-3xl font-bold text-white mb-4">Obtenez votre devis gratuit</h3>
-                    <p class="text-blue-100 mb-8">
-                        Contactez-nous pour une solution personnalisée adaptée à vos besoins
-                    </p>
-                    <button class="bg-white text-[#278EC7] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                        Demander un devis
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- ======================== -->
+        <!--   Community Section      -->
+        <!-- ======================== -->
+        <section id="communaute" class="community-section">
+            <div class="container">
+                <h2 class="section-title">Communauté & Réseautage</h2>
 
-    <!-- Contact -->
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Contact</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Prêt à transformer votre business ? Contactez-nous dès aujourd'hui
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Contactez-nous</h3>
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Nom complet *</label>
-                            <input type="text" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#278EC7] focus:border-transparent" required>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                            <input type="email" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#278EC7] focus:border-transparent" required>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                            <textarea rows="4" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#278EC7] focus:border-transparent" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="w-full bg-[#278EC7] text-white py-4 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
-                            Envoyer le message
-                        </button>
+                <!-- Testimonials -->
+                <div class="testimonials-grid">
+                    <blockquote class="testimonial-card fade-in-element">
+                        <img src="https://i.pravatar.cc/80?img=1" alt="Client 1">
+                        <p>"L'accompagnement de SELYN a été un véritable accélérateur pour notre croissance. Une expertise rare."</p>
+                        <footer>— Jean Dupont, CEO de TechCorp</footer>
+                    </blockquote>
+                    <blockquote class="testimonial-card fade-in-element">
+                        <img src="https://i.pravatar.cc/80?img=2" alt="Client 2">
+                        <p>"La flexibilité de l'espace de coworking et la puissance de SELYN Suite nous ont permis de nous structurer rapidement."</p>
+                        <footer>— Fatima El Fassi, Fondatrice de Creative Minds</footer>
+                    </blockquote>
+                </div>
+
+                <!-- Mission & Vision -->
+                <div class="mission-vision">
+                    <div>
+                        <h3>Notre Mission</h3>
+                        <p>Fournir un écosystème intégré qui simplifie l'entrepreneuriat et accélère la croissance des entreprises grâce à des solutions intelligentes et un environnement collaboratif.</p>
+                    </div>
+                    <div>
+                        <h3>Notre Vision</h3>
+                        <p>Devenir le partenaire stratégique de référence pour les entreprises en quête de transformation digitale, d'excellence opérationnelle et d'innovation durable.</p>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="newsletter-signup">
+                    <h3>Rejoignez notre communauté</h3>
+                    <p>Recevez nos analyses, actualités et invitations exclusives en avant-première.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre adresse e-mail" required>
+                        <button type="submit" class="btn btn-secondary">S'inscrire</button>
                     </form>
                 </div>
-                
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Nos coordonnées</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-[#278EC7] rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-phone text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Téléphone</h4>
-                                <p class="text-gray-600">+212 5 22 98 76 54</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-[#278EC7] rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-envelope text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Email</h4>
-                                <p class="text-gray-600">contact@selyn.ma</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-[#278EC7] rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-map-marker-alt text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Adresse</h4>
-                                <p class="text-gray-600">Casablanca Finance City Tower<br>20000 Casablanca, Maroc</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8 h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-                        <div class="text-center">
-                            <i class="fas fa-map text-gray-400 text-4xl mb-2"></i>
-                            <p class="text-gray-500">Google Maps</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#00365F] text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <img src="https://selyn.ma/logo%20SELYN.png" alt="Selyn Logo" class="h-12 w-auto mb-4">
-                    <p class="text-blue-200">
-                        Une plateforme intelligente, un accompagnement stratégique, un espace qui booste votre business.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Navigation</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-blue-200 hover:text-white transition-colors">Accueil</a></li>
-                        <li><a href="#products" class="text-blue-200 hover:text-white transition-colors">Produits & Solutions</a></li>
-                        <li><a href="#about" class="text-blue-200 hover:text-white transition-colors">Qui sommes-nous</a></li>
-                        <li><a href="#pricing" class="text-blue-200 hover:text-white transition-colors">Tarifs</a></li>
-                        <li><a href="#contact" class="text-blue-200 hover:text-white transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-blue-200 hover:text-white transition-colors">Conseil & Consulting</a></li>
-                        <li><a href="#" class="text-blue-200 hover:text-white transition-colors">Applications</a></li>
-                        <li><a href="#" class="text-blue-200 hover:text-white transition-colors">Coworking</a></li>
-                        <li><a href="#" class="text-blue-200 hover:text-white transition-colors">Événements</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Suivez-nous</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-[#278EC7] rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-[#278EC7] rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-[#278EC7] rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-[#278EC7] rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                <!-- Team -->
+                <div class="team-section">
+                    <h3 class="subsection-title">Notre Équipe</h3>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <img src="https://i.pravatar.cc/150?img=3" alt="Membre équipe 1">
+                            <h4>Alice Martin</h4>
+                            <p>CEO & Fondatrice</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://i.pravatar.cc/150?img=4" alt="Membre équipe 2">
+                            <h4>Karim Bennani</h4>
+                            <p>Directeur Technique (CTO)</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="Membre équipe 3">
+                            <h4>Sofia Chen</h4>
+                            <p>Responsable Coworking</p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Partners -->
+                <div class="partners-section">
+                    <h3 class="subsection-title">Nos Partenaires Stratégiques</h3>
+                    <div class="partners-logos">
+                        <img src="https://via.placeholder.com/150x60/CCCCCC/FFFFFF?text=Partner+1" alt="Partner 1 Logo">
+                        <img src="https://via.placeholder.com/150x60/CCCCCC/FFFFFF?text=Partner+2" alt="Partner 2 Logo">
+                        <img src="https://via.placeholder.com/150x60/CCCCCC/FFFFFF?text=Partner+3" alt="Partner 3 Logo">
+                        <img src="https://via.placeholder.com/150x60/CCCCCC/FFFFFF?text=Partner+4" alt="Partner 4 Logo">
+                        <img src="https://via.placeholder.com/150x60/CCCCCC/FFFFFF?text=Partner+5" alt="Partner 5 Logo">
+                    </div>
+                </div>
+
+                <!-- Upcoming Events -->
+                <div class="events-section">
+                    <h3 class="subsection-title">Événements à venir</h3>
+                    <ul class="events-list">
+                        <li class="event-item">
+                            <div class="event-date"><span>25</span>AOÛ</div>
+                            <div class="event-details">
+                                <h4>Masterclass : Financer son projet innovant</h4>
+                                <p>18:00 - Espace Conférence SELYN</p>
+                            </div>
+                            <a href="#" class="btn btn-outline">S'inscrire</a>
+                        </li>
+                        <li class="event-item">
+                            <div class="event-date"><span>12</span>SEP</div>
+                            <div class="event-details">
+                                <h4>Networking : La rencontre des entrepreneurs</h4>
+                                <p>19:00 - Rooftop SELYN</p>
+                            </div>
+                            <a href="#" class="btn btn-outline">Détails</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            
-            <div class="border-t border-blue-800 mt-12 pt-8 text-center">
-                <p class="text-blue-200">
-                    © 2024 Selyn Business Center. Tous droits réservés.
-                </p>
+        </section>
+    </main>
+
+    <!-- ===================== -->
+    <!--        Footer         -->
+    <!-- ===================== -->
+    <footer id="contact" class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column about">
+                    <h3 class="footer-logo">SELYN</h3>
+                    <p class="quote">“Là où le conseil, le digital et l’humain se rencontrent pour construire demain.”</p>
+                </div>
+                <div class="footer-column links">
+                    <h4 class="footer-heading">Plan du Site</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#poles">Nos Pôles</a></li>
+                        <li><a href="#offres">Offres & Tarifs</a></li>
+                        <li><a href="#communaute">Communauté</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column contact">
+                    <h4 class="footer-heading">Contact</h4>
+                    <p><i class="fas fa-phone"></i> +212 5 00 00 00 00</p>
+                    <p><i class="fas fa-envelope"></i> contact@selyn-bc.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Innovation, Casablanca, Maroc</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SELYN Business Center | Mentions Légales - Politique de Confidentialité</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
-            this.reset();
-        });
-
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.pricing-card, .bg-gray-50').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
