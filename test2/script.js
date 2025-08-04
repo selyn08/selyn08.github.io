@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 sessionStorage.setItem('selyn-preloader-shown', 'true');
             }, 500); // Corresponds to the transition duration in CSS
-        }, 5000); // 5-second preloader display
+        }, 3000); // 3-second preloader display
     } else if (preloader) {
         // If preloader has been shown, hide it immediately and show content
         preloader.style.display = 'none';
