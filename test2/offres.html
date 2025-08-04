@@ -18,9 +18,15 @@
     </button>
     <nav class="sidebar-nav" id="sidebar-nav">
         <div class="logo">
-            <a href="index.html">SELYN</a>
+            <a href="index.html">
+                <img src="https://raw.githubusercontent.com/ahmedtijaninet/test2/feat-selyn-website-design/SELYN.svg" alt="SELYN Logo" class="logo-svg">
+            </a>
         </div>
-        <ul>
+        <button class="horizontal-nav-toggle" aria-controls="nav-menu" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+        <ul id="nav-menu">
             <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
             <li><a href="consulting.html"><i class="fas fa-briefcase"></i> Consulting & Accompagnement</a></li>
             <li><a href="suite.html"><i class="fas fa-rocket"></i> SELYN Suite</a></li>
@@ -53,26 +59,26 @@
                         <h3>Freemium</h3>
                         <div class="price">0 <span>DH</span></div>
                         <p class="period">Pour démarrer</p>
-                        <a href="#" class="btn btn-outline">Commencer</a>
+                        <a href="checkout.html?offer=Freemium&price=0" class="btn btn-outline">Commencer</a>
                     </div>
                     <div class="pricing-card fade-in-element">
                         <h3>Pro</h3>
                         <div class="price">1500 <span>DH/mois</span></div>
                         <p class="period">Pour les indépendants</p>
-                        <a href="#" class="btn btn-outline">Choisir Pro</a>
+                        <a href="checkout.html?offer=Pro&price=1500" class="btn btn-outline">Choisir Pro</a>
                     </div>
                     <div class="pricing-card popular fade-in-element">
                         <div class="popular-badge">Populaire</div>
                         <h3>Business</h3>
                         <div class="price">3000 <span>DH/mois</span></div>
                         <p class="period">Pour les TPE/PME</p>
-                        <a href="#" class="btn btn-secondary">Choisir Business</a>
+                        <a href="checkout.html?offer=Business&price=3000" class="btn btn-secondary">Choisir Business</a>
                     </div>
                     <div class="pricing-card fade-in-element">
                         <h3>Personnalisée</h3>
                         <div class="price">Sur Devis</div>
                         <p class="period">Pour les besoins avancés</p>
-                        <a href="#" class="btn btn-outline">Nous contacter</a>
+                        <a href="contact.html" class="btn btn-outline">Nous contacter</a>
                     </div>
                 </div>
             </div>
@@ -141,7 +147,37 @@
     </main>
 
     <footer class="site-footer">
-        <!-- Footer content -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column about">
+                    <a href="index.html">
+                        <img src="https://raw.githubusercontent.com/ahmedtijaninet/test2/feat-selyn-website-design/SELYN.svg" alt="SELYN Logo" class="logo-svg-footer">
+                    </a>
+                    <p class="quote">“Là où le conseil, le digital et l’humain se rencontrent pour construire demain.”</p>
+                </div>
+                <div class="footer-column links">
+                    <h4 class="footer-heading">Plan du Site</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="consulting.html">Consulting</a></li>
+                        <li><a href="suite.html">SELYN Suite</a></li>
+                        <li><a href="coworking.html">Coworking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column contact">
+                    <h4 class="footer-heading">Contact</h4>
+                    <p><i class="fas fa-phone"></i> +212 5 00 00 00 00</p>
+                    <p><i class="fas fa-envelope"></i> contact@selyn-bc.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Innovation, Casablanca, Maroc</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SELYN Business Center | Mentions Légales - Politique de Confidentialité</p>
+                <button id="layout-toggle" title="Changer la mise en page">
+                    <i class="fas fa-exchange-alt"></i>
+                </button>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>

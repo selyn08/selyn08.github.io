@@ -75,9 +75,14 @@ img {
 }
 
 .sidebar-nav .logo a {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--text-color-light);
+    display: inline-block;
+    padding: 0 1rem;
+}
+
+.logo-svg {
+    width: 150px;
+    height: auto;
+    transition: width 0.3s ease;
 }
 
 .sidebar-nav ul li a {
@@ -111,7 +116,7 @@ img {
 .main-content {
     margin-left: 280px;
     padding: 0; /* Remove padding for full-width sections */
-    transition: margin-left 0.3s ease;
+    transition: margin-left 0.3s ease, padding-top 0.3s ease;
 }
 
 section {
@@ -581,10 +586,9 @@ section {
     margin-bottom: 3rem;
 }
 
-.footer-logo {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--neutral-white);
+.logo-svg-footer {
+    width: 180px;
+    height: auto;
     margin-bottom: 1rem;
 }
 
@@ -627,9 +631,144 @@ section {
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.5rem 0;
+    padding: 1.5rem 2rem;
     text-align: center;
     font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#layout-toggle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    color: white;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#layout-toggle:hover {
+    background: var(--secondary-color);
+}
+
+.layout-toggle-text {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ------------------- */
+/* Horizontal Layout   */
+/* ------------------- */
+/* When horizontal-layout is active on the body */
+body.horizontal-layout .main-content {
+    margin-left: 0;
+    padding-top: 80px; /* Height of the new top bar */
+}
+
+body.horizontal-layout .sidebar-nav {
+    width: 100%;
+    height: 80px;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateX(0); /* Override the mobile transform */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+body.horizontal-layout .sidebar-nav .logo {
+    margin-bottom: 0;
+}
+
+body.horizontal-layout .logo-svg {
+    width: 120px;
+}
+
+body.horizontal-layout .sidebar-nav ul {
+    display: flex;
+    gap: 1rem;
+}
+
+body.horizontal-layout .sidebar-nav ul li a {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+body.horizontal-layout .sidebar-nav ul li a .fas {
+    display: none; /* Hide icons on horizontal nav to save space */
+}
+
+body.horizontal-layout #layout-toggle {
+    position: static;
+    width: auto;
+    border: none;
+    background: transparent;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+body.horizontal-layout #layout-toggle:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+body.horizontal-layout .layout-toggle-text {
+    display: none;
+}
+
+/* Hide the vertical layout's mobile toggle */
+body.horizontal-layout .mobile-nav-toggle {
+    display: none;
+}
+
+.horizontal-nav-toggle {
+    display: none; /* Hidden by default, shown in horizontal mobile */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    body.horizontal-layout .sidebar-nav ul {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    body.horizontal-layout .sidebar-nav ul.is-visible {
+        max-height: 500px; /* Adjust as needed, should be larger than the menu's height */
+        opacity: 1;
+    }
+
+    body.horizontal-layout .sidebar-nav ul li a .fas {
+        display: inline-block; /* Show icons again in vertical dropdown */
+        margin-right: 1rem;
+    }
+
+    body.horizontal-layout .horizontal-nav-toggle {
+        display: block; /* Show the horizontal toggle */
+    }
 }
 
 /* ------------------- */
@@ -1042,6 +1181,70 @@ section {
     .timeline-item:nth-child(odd) .timeline-dot,
     .timeline-item:nth-child(even) .timeline-dot {
         left: 1px;
+    }
+}
+
+/* ------------------- */
+/*    Checkout Page    */
+/* ------------------- */
+.checkout-section {
+    background-color: var(--neutral-white);
+}
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.checkout-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.checkout-form input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-details {
+    display: flex;
+    gap: 1rem;
+}
+
+.order-summary {
+    background-color: var(--neutral-light);
+    padding: 2rem;
+    border-radius: 10px;
+    height: fit-content; /* To make it not stretch full height */
+}
+
+.order-summary h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.summary-item.total {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 992px) {
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+    .order-summary {
+        grid-row: 1; /* Move summary to the top on smaller screens */
     }
 }
 
