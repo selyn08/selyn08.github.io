@@ -135,10 +135,14 @@
         <div class="container small-container">
           <h2 class="section-title">Envoyez-nous un message</h2>
           <form class="contact-form">
-            <input type="text" placeholder="Votre Nom" required />
-            <input type="email" placeholder="Votre Email" required />
-            <input type="text" placeholder="Sujet" required />
-            <textarea placeholder="Votre message" rows="6" required></textarea>
+            <label for="contact-name" class="sr-only">Votre Nom</label>
+            <input type="text" id="contact-name" placeholder="Votre Nom" required />
+            <label for="contact-email" class="sr-only">Votre Email</label>
+            <input type="email" id="contact-email" placeholder="Votre Email" required />
+            <label for="contact-subject" class="sr-only">Sujet</label>
+            <input type="text" id="contact-subject" placeholder="Sujet" required />
+            <label for="contact-message" class="sr-only">Votre message</label>
+            <textarea id="contact-message" placeholder="Votre message" rows="6" required></textarea>
             <button type="submit" class="btn btn-secondary">Envoyer</button>
           </form>
         </div>
@@ -186,7 +190,7 @@
           <div class="footer-column about">
             <a href="index.html">
               <img
-                src="https://raw.githubusercontent.com/ahmedtijaninet/test2/feat-selyn-website-design/SELYN.svg"
+                src="SELYN.svg"
                 alt="SELYN Logo"
                 class="logo-svg-footer"
               />

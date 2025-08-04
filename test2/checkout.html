@@ -50,16 +50,22 @@
                     <div class="checkout-form">
                         <h3>Informations de facturation</h3>
                         <form id="payment-form">
-                            <input type="text" placeholder="Nom complet" required>
-                            <input type="email" placeholder="Adresse e-mail" required>
-                            <input type="text" placeholder="Nom de l'entreprise (facultatif)">
+                            <label for="fullname" class="sr-only">Nom complet</label>
+                            <input type="text" id="fullname" placeholder="Nom complet" required>
+                            <label for="email" class="sr-only">Adresse e-mail</label>
+                            <input type="email" id="email" placeholder="Adresse e-mail" required>
+                            <label for="company" class="sr-only">Nom de l'entreprise</label>
+                            <input type="text" id="company" placeholder="Nom de l'entreprise (facultatif)">
 
                             <h3 style="margin-top: 2rem;">Informations de paiement</h3>
                             <div id="card-element"><!-- Placeholder for credit card details -->
-                                <input type="text" placeholder="Numéro de carte">
+                                <label for="card-number" class="sr-only">Numéro de carte</label>
+                                <input type="text" id="card-number" placeholder="Numéro de carte">
                                 <div class="card-details">
-                                    <input type="text" placeholder="MM/AA">
-                                    <input type="text" placeholder="CVC">
+                                    <label for="expiry-date" class="sr-only">Date d'expiration</label>
+                                    <input type="text" id="expiry-date" placeholder="MM/AA">
+                                    <label for="cvc" class="sr-only">CVC</label>
+                                    <input type="text" id="cvc" placeholder="CVC">
                                 </div>
                             </div>
 
@@ -92,7 +98,7 @@
             <div class="footer-grid">
                 <div class="footer-column about">
                     <a href="index.html">
-                        <img src="https://raw.githubusercontent.com/ahmedtijaninet/test2/feat-selyn-website-design/SELYN.svg" alt="SELYN Logo" class="logo-svg-footer">
+                        <img src="SELYN.svg" alt="SELYN Logo" class="logo-svg-footer">
                     </a>
                     <p class="quote">“Là où le conseil, le digital et l’humain se rencontrent pour construire demain.”</p>
                 </div>

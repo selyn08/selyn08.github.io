@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Preloader Logic
+    const preloader = document.getElementById('preloader');
+    const contentToHide = document.querySelectorAll('.preloader-hidden');
+
+    if (preloader && !sessionStorage.getItem('selyn-preloader-shown')) {
+        setTimeout(() => {
+            preloader.classList.add('preloader-fade-out');
+
+            // Wait for the fade-out animation to complete
+            setTimeout(() => {
+                preloader.classList.add('preloader-hidden');
+                contentToHide.forEach(el => {
+                    el.classList.remove('preloader-hidden');
+                });
+                sessionStorage.setItem('selyn-preloader-shown', 'true');
+            }, 500); // Corresponds to the transition duration in CSS
+        }, 5000); // 5-second preloader display
+    } else if (preloader) {
+        // If preloader has been shown, hide it immediately and show content
+        preloader.style.display = 'none';
+        contentToHide.forEach(el => {
+            el.classList.remove('preloader-hidden');
+        });
+    }
+
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const sidebarNav = document.querySelector('.sidebar-nav');
     const icon = mobileNavToggle.querySelector('i');
@@ -122,5 +147,66 @@ document.addEventListener('DOMContentLoaded', () => {
             const isVisible = navMenu.classList.toggle('is-visible');
             horizontalNavToggle.setAttribute('aria-expanded', isVisible);
         });
+    }
+
+    // Poles Slider Logic
+    const polesSlider = document.getElementById('poles-slider');
+    if (polesSlider) {
+        const sliderContainer = polesSlider.querySelector('.slider-container');
+        const slides = polesSlider.querySelectorAll('.pole-slide-link');
+        const prevButton = polesSlider.querySelector('.slider-btn.prev');
+        const nextButton = polesSlider.querySelector('.slider-btn.next');
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        const getVisibleSlides = () => {
+            return window.innerWidth <= 768 ? 1 : 3;
+        };
+
+        const updateSliderPosition = () => {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            const newTransform = -currentIndex * slideWidth;
+
+            if (window.innerWidth <= 768) {
+                 sliderContainer.style.transform = `translateX(${newTransform}px)`;
+            } else {
+                sliderContainer.style.transform = `translateX(0px)`;
+            }
+
+            const visibleSlides = getVisibleSlides();
+            prevButton.disabled = currentIndex === 0;
+            nextButton.disabled = currentIndex >= totalSlides - visibleSlides;
+
+            if (window.innerWidth > 768) {
+                prevButton.style.display = 'none';
+                nextButton.style.display = 'none';
+            } else {
+                prevButton.style.display = 'flex';
+                nextButton.style.display = 'flex';
+            }
+        };
+
+        nextButton.addEventListener('click', () => {
+            const visibleSlides = getVisibleSlides();
+            if (currentIndex < totalSlides - visibleSlides) {
+                currentIndex++;
+                updateSliderPosition();
+            }
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSliderPosition();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            currentIndex = 0;
+            updateSliderPosition();
+        });
+
+        updateSliderPosition();
     }
 });
