@@ -1,0 +1,51 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const sidebarNav = document.querySelector('.sidebar-nav');
+    const icon = mobileNavToggle.querySelector('i');
+
+    if (mobileNavToggle && sidebarNav) {
+        mobileNavToggle.addEventListener('click', () => {
+            const isVisible = sidebarNav.classList.toggle('is-visible');
+            mobileNavToggle.setAttribute('aria-expanded', isVisible);
+
+            if (isVisible) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+
+    // Close menu when a link is clicked
+    const navLinks = sidebarNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (sidebarNav.classList.contains('is-visible')) {
+                sidebarNav.classList.remove('is-visible');
+                mobileNavToggle.setAttribute('aria-expanded', 'false');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    });
+
+    // Scroll-triggered fade-in animation
+    const animatedElements = document.querySelectorAll('.fade-in-element');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+});
