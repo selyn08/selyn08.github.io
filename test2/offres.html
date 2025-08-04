@@ -1,185 +1,304 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Offres & Tarifs | SELYN Business Center</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <button class="mobile-nav-toggle" aria-controls="sidebar-nav" aria-expanded="false">
-        <i class="fas fa-bars" aria-hidden="true"></i>
-        <span class="sr-only">Menu</span>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button
+      class="mobile-nav-toggle"
+      aria-controls="sidebar-nav"
+      aria-expanded="false"
+    >
+      <i class="fas fa-bars" aria-hidden="true"></i>
+      <span class="sr-only">Menu</span>
     </button>
     <nav class="sidebar-nav" id="sidebar-nav">
-        <div class="logo">
-            <a href="index.html">
-                <img src="SELYN.svg" alt="SELYN Logo" class="logo-svg">
-            </a>
-        </div>
-        <button class="horizontal-nav-toggle" aria-controls="nav-menu" aria-expanded="false">
-            <i class="fas fa-bars" aria-hidden="true"></i>
-            <span class="sr-only">Menu</span>
-        </button>
-        <ul id="nav-menu">
-            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="consulting.html"><i class="fas fa-briefcase"></i> Selyn Conseil</a></li>
-            <li><a href="suite.html"><i class="fas fa-rocket"></i> Selyn Suite</a></li>
-            <li><a href="coworking.html"><i class="fas fa-building"></i> Selyn Space</a></li>
-            <li class="active"><a href="offres.html"><i class="fas fa-tags"></i> Offres & Tarifs</a></li>
-            <li><a href="communaute.html"><i class="fas fa-users"></i> Communauté</a></li>
-            <li><a href="a-propos.html"><i class="fas fa-info-circle"></i> À propos</a></li>
-            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
+      <div class="logo">
+        <a href="index.html">
+          <img src="SELYN.svg" alt="SELYN Logo" class="logo-svg" />
+        </a>
+      </div>
+      <button
+        class="horizontal-nav-toggle"
+        aria-controls="nav-menu"
+        aria-expanded="false"
+      >
+        <i class="fas fa-bars" aria-hidden="true"></i>
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul id="nav-menu">
+        <li>
+          <a href="index.html"><i class="fas fa-home"></i> Accueil</a>
+        </li>
+        <li>
+          <a href="consulting.html"
+            ><i class="fas fa-briefcase"></i> Selyn Conseil</a
+          >
+        </li>
+        <li>
+          <a href="suite.html"><i class="fas fa-rocket"></i> Selyn Suite</a>
+        </li>
+        <li>
+          <a href="coworking.html"
+            ><i class="fas fa-building"></i> Selyn Space</a
+          >
+        </li>
+        <li class="active">
+          <a href="offres.html"><i class="fas fa-tags"></i> Offres & Tarifs</a>
+        </li>
+        <li>
+          <a href="communaute.html"><i class="fas fa-users"></i> Communauté</a>
+        </li>
+        <li>
+          <a href="a-propos.html"
+            ><i class="fas fa-info-circle"></i> À propos</a
+          >
+        </li>
+        <li>
+          <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        </li>
+      </ul>
+      <button id="layout-toggle" title="Changer la mise en page">
+        <i class="fas fa-exchange-alt"></i>
+        <span class="layout-toggle-text">Changer la vue</span>
+      </button>
     </nav>
 
     <main class="main-content">
-        <!-- ================== -->
-        <!--     Offers Hero      -->
-        <!-- ================== -->
-        <section class="hero-section page-hero">
-            <div class="hero-content">
-                <h1>Des Offres Flexibles Pour Votre Croissance</h1>
-                <p class="subtitle">Choisissez la formule qui correspond parfaitement à vos besoins actuels et futurs.</p>
-            </div>
-        </section>
+      <!-- ================== -->
+      <!--     Offers Hero      -->
+      <!-- ================== -->
+      <section class="hero-section page-hero">
+        <div class="hero-content">
+          <h1>Des Offres Flexibles Pour Votre Croissance</h1>
+          <p class="subtitle">
+            Choisissez la formule qui correspond parfaitement à vos besoins
+            actuels et futurs.
+          </p>
+        </div>
+      </section>
 
-        <!-- ===================== -->
-        <!--    Pricing Section    -->
-        <!-- ===================== -->
-        <section class="pricing-section">
-            <div class="container">
-                <div class="pricing-grid pricing-grid-4-cols">
-                    <div class="pricing-card fade-in-element">
-                        <h3>Freemium</h3>
-                        <div class="price">0 <span>DH</span></div>
-                        <p class="period">Pour démarrer</p>
-                        <a href="checkout.html?offer=Freemium&price=0" class="btn btn-outline">Commencer</a>
-                    </div>
-                    <div class="pricing-card fade-in-element">
-                        <h3>Pro</h3>
-                        <div class="price">1500 <span>DH/mois</span></div>
-                        <p class="period">Pour les indépendants</p>
-                        <a href="checkout.html?offer=Pro&price=1500" class="btn btn-outline">Choisir Pro</a>
-                    </div>
-                    <div class="pricing-card popular fade-in-element">
-                        <div class="popular-badge">Populaire</div>
-                        <h3>Business</h3>
-                        <div class="price">3000 <span>DH/mois</span></div>
-                        <p class="period">Pour les TPE/PME</p>
-                        <a href="checkout.html?offer=Business&price=3000" class="btn btn-secondary">Choisir Business</a>
-                    </div>
-                    <div class="pricing-card fade-in-element">
-                        <h3>Personnalisée</h3>
-                        <div class="price">Sur Devis</div>
-                        <p class="period">Pour les besoins avancés</p>
-                        <a href="contact.html" class="btn btn-outline">Nous contacter</a>
-                    </div>
-                </div>
+      <!-- ===================== -->
+      <!--    Pricing Section    -->
+      <!-- ===================== -->
+      <section class="pricing-section">
+        <div class="container">
+          <div class="pricing-grid pricing-grid-4-cols">
+            <div class="pricing-card fade-in-element">
+              <h3>Freemium</h3>
+              <div class="price">0 <span>DH</span></div>
+              <p class="period">Pour démarrer</p>
+              <a
+                href="checkout.html?offer=Freemium&price=0"
+                class="btn btn-outline"
+                >Commencer</a
+              >
             </div>
-        </section>
-
-        <!-- ======================== -->
-        <!--  Comparison Table Section  -->
-        <!-- ======================== -->
-        <section class="comparison-section">
-            <div class="container">
-                <h2 class="section-title">Tableau Comparatif Détaillé</h2>
-                <div class="table-responsive-wrapper">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Fonctionnalités</th>
-                                <th>Freemium</th>
-                                <th>Pro</th>
-                                <th>Business</th>
-                                <th>Personnalisée</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Consultation initiale</td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
-                            <tr><td>Accès Coworking</td><td>1h/semaine</td><td>5h/semaine</td><td>Quotidien</td><td>Illimité (2 pers)</td></tr>
-                            <tr><td>SELYN Suite (CRM)</td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
-                            <tr><td>SELYN Suite (Finance)</td><td><i class="fas fa-times"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
-                            <tr><td>SELYN Suite (RH)</td><td><i class="fas fa-times"></i></td><td><i class="fas fa-times"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
-                            <tr><td>Accompagnement projet</td><td><i class="fas fa-times"></i></td><td><i class="fas fa-times"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
-                            <tr><td>Support prioritaire</td><td><i class="fas fa-times"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td><td><i class="fas fa-check"></i></td></tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="pricing-card fade-in-element">
+              <h3>Pro</h3>
+              <div class="price">1500 <span>DH/mois</span></div>
+              <p class="period">Pour les indépendants</p>
+              <a
+                href="checkout.html?offer=Pro&price=1500"
+                class="btn btn-outline"
+                >Choisir Pro</a
+              >
             </div>
-        </section>
-
-        <!-- ======================== -->
-        <!--   Why Invest Section     -->
-        <!-- ======================== -->
-        <section class="why-choose-us-section">
-            <div class="container">
-                <h2 class="section-title">Pourquoi Investir dans une Offre SELYN ?</h2>
-                <div class="why-choose-us-content">
-                    <div class="why-choose-us-text">
-                        <h3>Un Investissement dans Votre Propre Succès.</h3>
-                        <p>Choisir une offre SELYN, c'est bien plus qu'acheter un service. C'est investir dans un écosystème conçu pour accélérer votre croissance, simplifier votre quotidien et vous connecter aux bonnes opportunités. Chaque euro investi est rentabilisé par le temps que vous gagnez, l'expertise que vous obtenez et les synergies que vous créez.</p>
-                    </div>
-                    <div class="why-choose-us-stats">
-                        <div class="stat-item">
-                            <i class="fas fa-rocket"></i>
-                            <span class="stat-label">Accélération</span>
-                        </div>
-                        <div class="stat-item">
-                            <i class="fas fa-cogs"></i>
-                            <span class="stat-label">Optimisation</span>
-                        </div>
-                        <div class="stat-item">
-                            <i class="fas fa-users"></i>
-                            <span class="stat-label">Connexion</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="pricing-card popular fade-in-element">
+              <div class="popular-badge">Populaire</div>
+              <h3>Business</h3>
+              <div class="price">3000 <span>DH/mois</span></div>
+              <p class="period">Pour les TPE/PME</p>
+              <a
+                href="checkout.html?offer=Business&price=3000"
+                class="btn btn-secondary"
+                >Choisir Business</a
+              >
             </div>
-        </section>
+            <div class="pricing-card fade-in-element">
+              <h3>Personnalisée</h3>
+              <div class="price">Sur Devis</div>
+              <p class="period">Pour les besoins avancés</p>
+              <a href="contact.html" class="btn btn-outline">Nous contacter</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <!-- ======================== -->
+      <!--  Comparison Table Section  -->
+      <!-- ======================== -->
+      <section class="comparison-section">
+        <div class="container">
+          <h2 class="section-title">Tableau Comparatif Détaillé</h2>
+          <div class="table-responsive-wrapper">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Fonctionnalités</th>
+                  <th>Freemium</th>
+                  <th>Pro</th>
+                  <th>Business</th>
+                  <th>Personnalisée</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Consultation initiale</td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                </tr>
+                <tr>
+                  <td>Accès Coworking</td>
+                  <td>1h/semaine</td>
+                  <td>5h/semaine</td>
+                  <td>Quotidien</td>
+                  <td>Illimité (2 pers)</td>
+                </tr>
+                <tr>
+                  <td>SELYN Suite (CRM)</td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                </tr>
+                <tr>
+                  <td>SELYN Suite (Finance)</td>
+                  <td><i class="fas fa-times"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                </tr>
+                <tr>
+                  <td>SELYN Suite (RH)</td>
+                  <td><i class="fas fa-times"></i></td>
+                  <td><i class="fas fa-times"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                </tr>
+                <tr>
+                  <td>Accompagnement projet</td>
+                  <td><i class="fas fa-times"></i></td>
+                  <td><i class="fas fa-times"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                </tr>
+                <tr>
+                  <td>Support prioritaire</td>
+                  <td><i class="fas fa-times"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td><i class="fas fa-check"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================== -->
+      <!--   Why Invest Section     -->
+      <!-- ======================== -->
+      <section class="why-choose-us-section">
+        <div class="container">
+          <h2 class="section-title">
+            Pourquoi Investir dans une Offre SELYN ?
+          </h2>
+          <div class="why-choose-us-content">
+            <div class="why-choose-us-text">
+              <h3>Un Investissement dans Votre Propre Succès.</h3>
+              <p>
+                Choisir une offre SELYN, c'est bien plus qu'acheter un service.
+                C'est investir dans un écosystème conçu pour accélérer votre
+                croissance, simplifier votre quotidien et vous connecter aux
+                bonnes opportunités. Chaque euro investi est rentabilisé par le
+                temps que vous gagnez, l'expertise que vous obtenez et les
+                synergies que vous créez.
+              </p>
+            </div>
+            <div class="why-choose-us-stats">
+              <div class="stat-item">
+                <i class="fas fa-rocket"></i>
+                <span class="stat-label">Accélération</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-cogs"></i>
+                <span class="stat-label">Optimisation</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <span class="stat-label">Connexion</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column about">
-                    <a href="index.html">
-                        <img src="https://raw.githubusercontent.com/ahmedtijaninet/test2/feat-selyn-website-design/SELYN.svg" alt="SELYN Logo" class="logo-svg-footer">
-                    </a>
-                    <p class="quote">“Là où le conseil, le digital et l’humain se rencontrent pour construire demain.”</p>
-                </div>
-                <div class="footer-column links">
-                    <h4 class="footer-heading">Plan du Site</h4>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="consulting.html">Selyn Conseil</a></li>
-                        <li><a href="suite.html">Selyn Suite</a></li>
-                        <li><a href="coworking.html">Selyn Space</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column contact">
-                    <h4 class="footer-heading">Contact</h4>
-                    <p><i class="fas fa-phone"></i> +212 5 00 00 00 00</p>
-                    <p><i class="fas fa-envelope"></i> contact@selyn-bc.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Innovation, Casablanca, Maroc</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 SELYN Business Center | Mentions Légales - Politique de Confidentialité</p>
-                <button id="layout-toggle" title="Changer la mise en page">
-                    <i class="fas fa-exchange-alt"></i>
-                </button>
-            </div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column about">
+            <a href="index.html">
+              <img
+                src="https://raw.githubusercontent.com/ahmedtijaninet/test2/feat-selyn-website-design/SELYN.svg"
+                alt="SELYN Logo"
+                class="logo-svg-footer"
+              />
+            </a>
+            <p class="quote">
+              “Là où le conseil, le digital et l’humain se rencontrent pour
+              construire demain.”
+            </p>
+          </div>
+          <div class="footer-column links">
+            <h4 class="footer-heading">Plan du Site</h4>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="consulting.html">Selyn Conseil</a></li>
+              <li><a href="suite.html">Selyn Suite</a></li>
+              <li><a href="coworking.html">Selyn Space</a></li>
+            </ul>
+          </div>
+          <div class="footer-column contact">
+            <h4 class="footer-heading">Contact</h4>
+            <p><i class="fas fa-phone"></i> +212 5 00 00 00 00</p>
+            <p><i class="fas fa-envelope"></i> contact@selyn-bc.com</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Rue de l'Innovation,
+              Casablanca, Maroc
+            </p>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 SELYN Business Center | Mentions Légales - Politique de
+            Confidentialité
+          </p>
+
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
