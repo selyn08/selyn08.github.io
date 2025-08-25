@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SELYN Business Center Design System - All colors in HSL */
+
+@layer base {
+  :root {
+    /* SELYN Brand Colors */
+    --selyn-light: 105 67% 95%;        /* #EAF9E7 */
+    --selyn-secondary: 107 41% 82%;     /* #C0E6BA */
+    --selyn-primary: 141 46% 54%;       /* #4CA771 */
+    --selyn-dark: 186 95% 11%;          /* #013237 */
+    
+    /* Core Design System */
+    --background: 105 67% 95%;          /* SELYN Light */
+    --foreground: 186 95% 11%;          /* SELYN Dark */
+
+    --card: 0 0% 100%;
+    --card-foreground: 186 95% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 186 95% 11%;
+
+    --primary: 141 46% 54%;             /* SELYN Primary Green */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 107 41% 82%;           /* SELYN Secondary */
+    --secondary-foreground: 186 95% 11%;
+
+    --muted: 107 30% 90%;
+    --muted-foreground: 186 50% 25%;
+
+    --accent: 141 46% 54%;              /* SELYN Primary Green */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 107 41% 75%;
+    --input: 0 0% 100%;
+    --ring: 141 46% 54%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-selyn: linear-gradient(135deg, hsl(var(--selyn-primary)) 0%, hsl(var(--selyn-secondary)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--selyn-light)) 0%, hsl(var(--selyn-secondary)) 50%, hsl(var(--selyn-primary)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.8), hsl(0 0% 100% / 0.4));
+    
+    /* Shadows */
+    --shadow-selyn: 0 10px 30px -10px hsl(var(--selyn-primary) / 0.3);
+    --shadow-card: 0 4px 20px -2px hsl(var(--selyn-primary) / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--selyn-primary) / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: linear-gradient(135deg, hsl(var(--selyn-light)) 0%, hsl(var(--selyn-secondary)) 100%);
+    min-height: 100vh;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--selyn-light));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--selyn-primary));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--selyn-primary) / 0.8);
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+    background: var(--gradient-hero);
+  }
+  
+  .hero-content {
+    @apply relative z-10 text-center max-w-4xl mx-auto px-6;
+  }
+  
+  .hero-title {
+    @apply text-5xl md:text-7xl font-bold mb-6 text-foreground;
+    background: linear-gradient(135deg, hsl(var(--selyn-primary)), hsl(var(--selyn-dark)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-subtitle {
+    @apply text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed;
+  }
+  
+  /* Card Styles */
+  .selyn-card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl border border-border shadow-lg hover:shadow-xl transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .selyn-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-selyn);
+  }
+  
+  /* Button Gradients */
+  .btn-selyn {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground;
+    background: var(--gradient-selyn);
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-selyn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Animation Classes */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .text-gradient-selyn {
+    background: linear-gradient(135deg, hsl(var(--selyn-primary)), hsl(var(--selyn-dark)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-selyn {
+    background: var(--gradient-selyn);
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--selyn-primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--selyn-primary) / 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
